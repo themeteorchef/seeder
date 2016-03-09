@@ -89,6 +89,6 @@ class Seeder {
   }
 }
 
-export default function( collection, options ) {
+Seed = ( collection, options ) => {
   return new Seeder( collection, options );
-}
+};

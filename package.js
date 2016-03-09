@@ -10,7 +10,12 @@ Package.onUse( function( api ) {
   api.use( [ 'ecmascript', 'accounts-base', 'accounts-password' ] );
   api.use( 'alanning:roles@1.2.14' );
 
-  api.mainModule( 'seeder.js', 'server' );
+  if ( api.mainModule ) {
+    api.mainModule( 'seeder.js', 'server' );
+  } else {
+    api.addFiles( 'seeder_pre1.3.js', 'server' );
+    api.export( 'Seed' );
+  }
 });
 
 // Tests coming in 1.0.0 release.
